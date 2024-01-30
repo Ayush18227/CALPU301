@@ -1,0 +1,60 @@
+Ques  : wave_array
+sample input : 0,2,5,10
+sample output : 2,0,10,5 
+Ans : 
+ 
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; cin >> arr[i++]);
+
+    sort(arr, arr + n);
+    for (int i = 0; i < n - 1; swap(arr[i], arr[i + 1]), i += 2);
+
+    cout << "Wave array: ";
+    for (int i = 0; i < n; cout << arr[i++] << " ");
+
+    return 0;
+
+Ques 2 : move zeors to the right 
+sample input : 12,0,13,0,15
+sample output : 12,13,15,0,0
+
+#include <iostream>
+
+using namespace std;
+
+void move(int arr[], int n) {
+    for (int i = 0, nonZeroIndex = 0; i < n; ++i)
+        if (arr[i] != 0)
+            swap(arr[i], arr[nonZeroIndex++]);
+}
+
+int main() {
+    const int maxSize = 100;
+    int arr[maxSize], n;
+
+    cout << "Enter the size of the array: ";
+    cin >> n;
+
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; ++i)
+        cin >> arr[i];
+
+    move(arr, n);
+
+    cout << "Sample Output: ";
+    for (int i = 0; i < n; ++i)
+cout << arr[i] << (i < n - 1 ? "," : "");
+
+    return 0;
+}
+
